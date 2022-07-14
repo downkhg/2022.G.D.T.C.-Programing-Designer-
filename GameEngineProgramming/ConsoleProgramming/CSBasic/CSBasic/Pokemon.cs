@@ -68,22 +68,24 @@ namespace CSBasic
             player.Show();
             monster.Show();
 
-            while (!player.Death() && !monster.Death())//죽지않았을때 -> 살아있을때
+            while (true)//죽지않았을때 -> 살아있을때
             {
-                Console.WriteLine("My Pokemon Turn");
+                Console.WriteLine("###### My Pokemon Turn #######");
                 if (player.Death() == false)//플레이어가 공격
                 {
+                    Console.WriteLine(string.Format("{0} is Attack {1}", player.Name, monster.Name));
                     player.Attack(monster);
                     monster.Show();
                 }
                 else
                 {
-                    Console.WriteLine("My Pokemon Turn! :" + player.Name);
+                    Console.WriteLine("My Pokemon Win! :" + player.Name);
                     return player;
                 }
-                Console.WriteLine("Wild Pokemon Turn");
+                Console.WriteLine("###### Wild Pokemon Turn ######");
                 if (monster.Death() == false)//플레이어가 공격
                 {
+                    Console.WriteLine(string.Format("{0} is Attack {1}", monster.Name, player.Name));
                     monster.Attack(player);
                     player.Show();
                 }
@@ -115,7 +117,6 @@ namespace CSBasic
                 string strInput = Console.ReadLine();
                 Pokemon wildPokemon = null;
                
-
                 switch(strInput)
                 {
                     case "sea":
@@ -130,17 +131,28 @@ namespace CSBasic
                     case "desert":
                         wildPokemon = wildPokemons.Find(pokemon => { return pokemon.Name == "ji-hyeon"; });
                         break;
+                    default:
+                        Console.WriteLine("Select Fail!! "+ strInput);
+                        break;
                 }
 
-                trainer.PokemonListShow();
-                Console.Write("Select Pokemon:");
-                strInput = Console.ReadLine();
+                if (wildPokemon != null)
+                {
+                    trainer.PokemonListShow();
+                    Console.Write("Select Pokemon:");
+                    strInput = Console.ReadLine();
 
-                Pokemon myPokemon = trainer.Throw(strInput);
-                Pokemon catchPokeom = Battle(myPokemon, wildPokemon);
+                    Pokemon myPokemon = trainer.Throw(strInput);
+                    if (myPokemon != null)
+                    {
+                        Pokemon catchPokeom = Battle(myPokemon, wildPokemon);
 
-                if(catchPokeom != null)
-                    trainer.Catch(catchPokeom);
+                        if (catchPokeom != null)
+                            trainer.Catch(catchPokeom);
+                    }
+                    else
+                        Console.WriteLine("Select Fail!! " + strInput);
+                }
             }
         }
     }
