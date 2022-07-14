@@ -14,7 +14,8 @@ namespace CSBasic
             //PlayerAttackMain();
             //BattleMain();
             //ClassBattleMain();
-            SelectStageMain();
+            //SelectStageMain();
+            PokemonGame.Game();
         }
         //변수: 데이터를 담는 상자
         static int Add(int a, int b)//30, 20
