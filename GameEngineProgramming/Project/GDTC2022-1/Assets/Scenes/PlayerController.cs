@@ -59,19 +59,13 @@ public class PlayerController : MonoBehaviour
     }
 
     //게임에 간단한 정보를 테스트용으로 정보를 보여주기위해사용 : 레거시GUI
-    private void OnGUI()
-    {
-        float fHorizontal = Input.GetAxis("Horizontal");
-        float fVertical = Input.GetAxis("Vertical");
+    //private void OnGUI()
+    //{
+    //    float fHorizontal = Input.GetAxis("Horizontal");
+    //    float fVertical = Input.GetAxis("Vertical");
 
-        GUI.Box(new Rect(0, 0, 100, 100), "H/V"+fHorizontal.ToString() + "/"+ fVertical.ToString());
-    }
+    //    GUI.Box(new Rect(0, 0, 100, 100), "H/V"+fHorizontal.ToString() + "/"+ fVertical.ToString());
+    //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Bullet")
-        {
-            Debug.Log("Hit!");
-        }
-    }
+    
 }

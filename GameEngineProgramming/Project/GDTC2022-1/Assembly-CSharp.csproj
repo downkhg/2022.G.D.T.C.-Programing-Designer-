@@ -56,10 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scenes\PlayerController.cs" />
     <Compile Include="Assets\Scenes\BulletShotter.cs" />
+    <Compile Include="Assets\Scenes\PlayerController.cs" />
+    <Compile Include="Assets\Scenes\Player.cs" />
+    <Compile Include="Assets\Scenes\Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\작업목록.txt" />
     <None Include="Assets\용어정리.txt" />
   </ItemGroup>
   <ItemGroup>

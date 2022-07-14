@@ -15,6 +15,8 @@ public class BulletShotter : MonoBehaviour
         copyBullet.transform.LookAt(objTarget.transform);
         Rigidbody rigidbody = copyBullet.GetComponent<Rigidbody>();
         rigidbody.AddForce(copyBullet.transform.forward * Power);
+        Bullet bullet = copyBullet.GetComponent<Bullet>();
+        bullet.master = this.gameObject.GetComponent<Player>();
         Destroy(copyBullet, 10);
     }
 

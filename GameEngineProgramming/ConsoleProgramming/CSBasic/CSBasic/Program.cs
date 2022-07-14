@@ -8,8 +8,8 @@ namespace CSBasic
         //Ctrl+F5: 디버거없이 빌드 및 실행
         static void Main(string[] args)//프로그램이 처음 실행했을때 가장 먼저 호출하는 함수
         {
-            Console.WriteLine("Hello World!?!?");
-            Console.WriteLine("Add:" + Add(30, 20));
+            //Console.WriteLine("Hello World!?!?");
+            //Console.WriteLine("Add:" + Add(30, 20));
             //ValMain();//2. 함수의 호출: 정의된 함수를 여기에서 사용하도록 하는 것.
             //PlayerAttackMain();
             //BattleMain();
