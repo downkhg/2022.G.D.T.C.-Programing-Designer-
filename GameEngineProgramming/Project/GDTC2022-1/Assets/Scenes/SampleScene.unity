@@ -394,6 +394,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 39.193, y: 24.165, z: 35.376}
+--- !u!1 &1147874717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1873032966215494540, guid: 0058b661c1bb8aa43a29ca35f51c879c, type: 3}
+  m_PrefabInstance: {fileID: 1873032967502982112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1147874718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147874717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d7c41cdffc0534097ecedc9153f886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objBullet: {fileID: 2341528451013727329, guid: fcfa6473155e50e48b45f09c305f2ce8, type: 3}
+  Power: 100
 --- !u!1 &1366823223
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,5 +979,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1873032966215494545, guid: 0058b661c1bb8aa43a29ca35f51c879c, type: 3}
+      propertyPath: gunSlot
+      value: 
+      objectReference: {fileID: 1147874718}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0058b661c1bb8aa43a29ca35f51c879c, type: 3}
