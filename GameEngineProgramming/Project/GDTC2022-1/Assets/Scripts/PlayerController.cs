@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 vDir,vSpeed, vMove;
         if (Input.GetKey(KeyCode.W))
         {
             MoveProcess(Vector3.forward);
@@ -54,6 +53,11 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("RaycastHit:"+raycastHit.transform.gameObject.name);
                 this.gameObject.transform.LookAt(raycastHit.transform);
             }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (gunSlot != null) gunSlot.Shot();
         }
     }
 

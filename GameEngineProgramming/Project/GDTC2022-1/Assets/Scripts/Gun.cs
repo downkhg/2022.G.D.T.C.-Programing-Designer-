@@ -9,12 +9,14 @@ public class Gun : MonoBehaviour
 
     public void Shot()
     {
+        Debug.Log("GunShot 1");
         GameObject copyBullet = Instantiate(objBullet, this.transform.position, Quaternion.identity);
         Rigidbody rigidbody = copyBullet.GetComponent<Rigidbody>();
         rigidbody.AddForce(this.transform.forward * Power);
         Bullet bullet = copyBullet.GetComponent<Bullet>();
         bullet.master = this.gameObject.GetComponent<Player>();
         Destroy(copyBullet, 10);
+        Debug.Log("GunShot 2");
     }
 
 }

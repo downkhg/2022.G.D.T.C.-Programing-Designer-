@@ -13,11 +13,20 @@
 GameObject.Find:
 Input:
 Instantiate:
-TriggerEnter/Stay/Exit
+TriggerEnter/Stay/Exit:
+GetComponet<컴포넌트명>:
+GetKey/Down/Up:
+GetMouseButton/Down/Up:
+Camera.ScreenPointToRay:
+transform.LookAt:
+OnGUI:
+GUI.Box:
+Time.deltaTime:
 
 #충돌처리
 Trigger:
 Collider:
+Raycast:
 
 #컴포넌트
 리지드바디:
@@ -29,3 +38,4 @@ Collider:
 #문법
 변수:
 함수:
+public:

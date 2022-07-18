@@ -6,8 +6,7 @@ public class BulletShotter : MonoBehaviour
 {
     public GameObject objBullet;
     public float Power;
-
-    //타겟을 조준하고, (조준한 타겟을 바라본다).
+    
 
     public void AimShot(GameObject objTarget)
     {
@@ -26,17 +25,11 @@ public class BulletShotter : MonoBehaviour
         GameObject objTarget = GameObject.Find("Player");
         AimShot(objTarget);
     }
-
-    float curTime;
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (curTime >= 1)
-        {
-            AimShot(GameObject.Find("Player"));
-            curTime -= 1;
-        }
-        curTime += Time.deltaTime;
+       
     }
 }
