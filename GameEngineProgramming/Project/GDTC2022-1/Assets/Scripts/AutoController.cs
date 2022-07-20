@@ -17,9 +17,11 @@ public class AutoController : MonoBehaviour
 
     public void SetStatus(E_AI_STATUS state)//상태를 설정함.
     {
+        Debug.Log("SetStatus("+state +")");
         switch (state)
         {
             case E_AI_STATUS.FIND:
+                ShotOff();
                 break;
             case E_AI_STATUS.MOVE:
                 break;
@@ -38,12 +40,26 @@ public class AutoController : MonoBehaviour
                 FindProcess();
                 break;
             case E_AI_STATUS.MOVE:
+                //FindProcess();
                 if (objTarget != null)
                 {
-                    MoveProcess();
+                    // Range < fTargetDist < Site
+                    if (DetectSiteTarget())
+                    {
+                        MoveProcess();
+                    }
+                    else
+                    {
+                        SetStatus(E_AI_STATUS.FIND);
+                    } 
                 }
                 break;
             case E_AI_STATUS.SHOT:
+                if (objTarget != null)
+                {
+                    if (DetectSiteTarget() == false)
+                        SetStatus(E_AI_STATUS.FIND);
+                }
                 break;
         }
     }
@@ -88,7 +104,10 @@ public class AutoController : MonoBehaviour
                 collider.tag == "Player")
             {
                 if (objTarget == null)
+                {
                     objTarget = collider.gameObject;
+                    SetStatus(E_AI_STATUS.MOVE);
+                }
 
                 bCheck = true;
             }
@@ -97,7 +116,7 @@ public class AutoController : MonoBehaviour
         if (bCheck == false)
         {
             objTarget = null;
-            ShotOff();
+            SetStatus(E_AI_STATUS.FIND);
         }
     }
 
@@ -108,6 +127,7 @@ public class AutoController : MonoBehaviour
         float fTargetDist = Vector3.Distance(vPlayerPos, vTargetPos);
         Vector3 vTargetDir = vTargetPos - vPlayerPos;
 
+     
         if (fTargetDist >= Range)
         {
             if (isShot) ShotOff();
@@ -117,22 +137,39 @@ public class AutoController : MonoBehaviour
         else
         {
             Debug.DrawLine(vPlayerPos, vTargetPos, Color.green);
-            if (!isShot) ShotOn();
+            SetStatus(E_AI_STATUS.SHOT);
+            //if (!isShot) ShotOn();
+        }    
+    }
+
+    bool DetectSiteTarget()
+    {
+        Vector3 vPlayerPos = playerController.transform.position;
+        Vector3 vTargetPos = objTarget.transform.position;
+        float fTargetDist = Vector3.Distance(vPlayerPos, vTargetPos);
+        Vector3 vTargetDir = vTargetPos - vPlayerPos;
+        float fTargetRad = objTarget.GetComponent<CapsuleCollider>().radius;
+
+        if (fTargetDist <= Site + fTargetRad)
+        {
+            return true;
         }
+        return false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(objTarget != null)
-        {
-            MoveProcess();
-        }
+       //if(objTarget != null)
+       // {
+       //     MoveProcess();
+       // }
     }
 
     private void FixedUpdate()//물리없는 충돌처리시에 사용함.
     {
-        FindProcess();
+        //FindProcess();
+        UpdateStatus();
     }
 
     private void OnDrawGizmos()//충돌범위를 보여주기위하여 추가
