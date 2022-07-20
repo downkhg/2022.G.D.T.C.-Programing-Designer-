@@ -10,18 +10,19 @@ public class MonsterController : MonoBehaviour
     public void OnShot(bool on)
     {
         Debug.Log("Onshot:" + on);
-        if (on) StartCoroutine(ProcessShot(2));
+        if (on) 
+        StartCoroutine(ProcessShot(2));
         isShot = on;  
     }
 
-    IEnumerator ProcessShot(float time)
+    IEnumerator ProcessShot(float time)//2
     {
         Debug.Log("ProcessShot 1: "+time);
         isShot = true;
         while (isShot)
         {
             GetComponent<BulletShotter>().AimShot(GameObject.Find("Player"));
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(time);//2
         }
         Debug.Log("ProcessShot 2: " + time);
     }

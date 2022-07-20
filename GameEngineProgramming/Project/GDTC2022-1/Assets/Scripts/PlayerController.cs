@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed;
     public Gun gunSlot;
+    public bool isAuto = false;
 
     //처음에 한번만 실행되게할때
     // Start is called before the first frame update
@@ -16,6 +17,14 @@ public class PlayerController : MonoBehaviour
     //게임을 하는 동안 지속적으로 업데이트 해야할때
     // Update is called once per frame
     void Update()
+    {
+        if (isAuto == false)
+        {
+            InputProcess();
+        }
+    }
+
+    public void InputProcess()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -29,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             MoveProcess(Vector3.right);
         }
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             //vDir = Vector3.left;
             //vSpeed = vDir * Speed; //속도
@@ -37,9 +46,9 @@ public class PlayerController : MonoBehaviour
             //transform.position += vMove; //위치에 방향값을 더해서 위치가 변경된다.
             MoveProcess(Vector3.left);
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(gunSlot!=null) gunSlot.Shot();
+            if (gunSlot != null) gunSlot.Shot();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -48,9 +57,9 @@ public class PlayerController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(vScreenPoint);
 
             RaycastHit raycastHit;
-            if(Physics.Raycast(ray,out raycastHit))
+            if (Physics.Raycast(ray, out raycastHit))
             {
-                Debug.Log("RaycastHit:"+raycastHit.transform.gameObject.name);
+                Debug.Log("RaycastHit:" + raycastHit.transform.gameObject.name);
                 this.gameObject.transform.LookAt(raycastHit.transform);
             }
         }
@@ -61,11 +70,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void MoveProcess(Vector3 vDir)
+    public void MoveProcess(Vector3 vDir)
     {
         Vector3 vSpeed = vDir * Speed; //속도
         Vector3 vMove = vSpeed * Time.deltaTime; //1 프레임 당 이동량
         transform.position += vMove; //위치에 방향값을 더해서 위치가 변경
+    }
+
+    public void Lookat(GameObject target)
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.gameObject.transform.LookAt(target.transform);
+    }
+
+    public void Shot()
+    {
+        gunSlot.Shot();
     }
 
     void ProcessInputAxis()

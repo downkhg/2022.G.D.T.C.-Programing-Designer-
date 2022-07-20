@@ -22,6 +22,7 @@ transform.LookAt:
 OnGUI:
 GUI.Box:
 Time.deltaTime:
+Coroutine:
 
 #충돌처리
 Trigger:
@@ -39,3 +40,4 @@ Raycast:
 변수:
 함수:
 public:
+private:
