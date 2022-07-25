@@ -32,6 +32,7 @@ public class AutoController : MonoBehaviour
         curAiStatus = state;
     }
 
+    public int nColCount = 0;
     public void UpdateStatus()//상태에 따른 지속적인 처리를 수행함.
     {
         switch (curAiStatus)
@@ -96,7 +97,36 @@ public class AutoController : MonoBehaviour
     void FindProcess()
     {
         Collider[] colliders = Physics.OverlapSphere(playerController.transform.position, Site);
+        nColCount = colliders.Length;
+        bool bCheck = false;
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.name != playerController.gameObject.name &&
+                collider.tag == "Player")
+            {
+                if (objTarget == null)
+                {
+                    objTarget = collider.gameObject;
+                    SetStatus(E_AI_STATUS.MOVE);
+                }
 
+                bCheck = true;
+            }
+        }
+
+        if (bCheck == false)
+        {
+            objTarget = null;
+            SetStatus(E_AI_STATUS.FIND);
+        }
+    }
+
+    void FindProcessLayer()
+    {
+        int nLayer = 1 << LayerMask.NameToLayer("Player");
+        Collider[] colliders = Physics.OverlapSphere(playerController.transform.position, Site, nLayer);
+
+        nColCount = colliders.Length;
         bool bCheck = false;
         foreach (var collider in colliders)
         {
