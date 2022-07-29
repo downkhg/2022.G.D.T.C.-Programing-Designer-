@@ -9,10 +9,10 @@ public class GUIPlayerInfo : MonoBehaviour
     public Text textLv;
     public GUIStatusBar guiHP;
 
-    void Set(string name, int lv)
+    public void Set(string name, int lv)
     {
         textName.text = name;
-        textLv.text = string.Format("Lv.{1}", lv);
+        textLv.text = string.Format("Lv.{0}", lv);
     }
 
     // Start is called before the first frame update

@@ -10,7 +10,7 @@ public class GUIStatusBar : MonoBehaviour
     public RectTransform rectBarBG;
     public Color colorBar = Color.white;
 
-    void Set(string labletext, Color color, int state, int state_max)
+    public void Set(string labletext, Color color, int state, int state_max)
     {
         textLable.text = labletext;
         //Image img = rectBar.gameObject.GetComponent<Image>();
@@ -19,7 +19,7 @@ public class GUIStatusBar : MonoBehaviour
         SetState(state, state_max);
     }
 
-    void SetState(float state, float state_max)
+    public void SetState(float state, float state_max)
     {
         float fStateRat = state / state_max;
         Vector2 vMaxSize = rectBarBG.sizeDelta;
