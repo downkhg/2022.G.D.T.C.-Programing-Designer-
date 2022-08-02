@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG_Console", "RPG_Console\RPG_Console.csproj", "{2916F9D6-B68F-4E47-8EDA-4A41E3EEF05D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2916F9D6-B68F-4E47-8EDA-4A41E3EEF05D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2916F9D6-B68F-4E47-8EDA-4A41E3EEF05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2916F9D6-B68F-4E47-8EDA-4A41E3EEF05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2916F9D6-B68F-4E47-8EDA-4A41E3EEF05D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A222B520-BB35-466B-8E3D-B7D57C652F65}
+	EndGlobalSection
+EndGlobal

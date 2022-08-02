@@ -7,10 +7,22 @@ public class GameManager : MonoBehaviour
     public GameObject objPlayer;
     public GUIPlayerInfo guiPlayerInfo;
 
+    public static int nTotalScore;
+    public int nPlayerScore;
+
     public enum E_SCENE_STATE { TITLE, PLAY, GAMEOVER, MAX }
     public E_SCENE_STATE curState;
 
     public List<GameObject> listSecnes;
+
+    static GameManager instance;
+
+    public static GameManager GetInstance() { return instance; }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void ShowScene(E_SCENE_STATE state)
     {
