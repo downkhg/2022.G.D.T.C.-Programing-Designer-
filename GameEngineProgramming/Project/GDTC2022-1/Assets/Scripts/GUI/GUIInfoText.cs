@@ -11,8 +11,10 @@ public class GUIInfoText : MonoBehaviour
 
     public void Set(string name, string info)
     {
+        Debug.Log(this.ToString() + ".Set(" + name + "," +info+")");
         textName.text = name;
         textInfo.text = info;
+        Show();
     }
 
     public void Show()

@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ItemBox.cs" />
     <Compile Include="Assets\Scripts\BulletShotter.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIStatusBar.cs" />
@@ -67,7 +68,10 @@
     <Compile Include="Assets\Scripts\GUI\GUIPlayerInfo.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIInfoText.cs" />
-    <Compile Include="Assets\Scripts\ItemBox.cs" />
+    <Compile Include="Assets\Library\RPG.cs" />
+    <Compile Include="Assets\Scripts\Iventory.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIIventory.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIItemButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\작업목록.txt" />

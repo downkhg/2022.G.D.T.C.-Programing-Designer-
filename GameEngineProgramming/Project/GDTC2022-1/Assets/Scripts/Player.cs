@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Player: MonoBehaviour
 {
-    public int nAttack;
-    public int nHp;
-
+    [SerializeField]
+    public Status sStatus;
     int nMaxHP;
+    int nMaxMP;
+
     public int MaxHP 
     { 
         get => nMaxHP; 
+        //set => nMaxHP = value; 
+    }
+
+    public int MaxMP
+    {
+        get => nMaxMP;
         //set => nMaxHP = value; 
     }
 
@@ -27,12 +34,12 @@ public class Player: MonoBehaviour
 
     public void Attack(Player target)
     {
-        target.nHp -= nAttack;
+        target.sStatus.m_nHP -= sStatus.m_nStr - target.sStatus.m_nDef;
     }
 
     public bool Death()
     {
-        if (nHp <= 0)
+        if (sStatus.m_nHP <= 0)
             return true;
         else
             return false;
@@ -44,13 +51,14 @@ public class Player: MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Box(new Rect(0 + idx*100, 0, 100, 40), string.Format("HP:{0}\nAtk:{1}\n", nHp, nAttack));
+        //GUI.Box(new Rect(0 + idx*100, 0, 100, 40), sStatus.ToString());
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        nMaxHP = nHp;
+        nMaxHP = sStatus.m_nHP;
+        nMaxMP = sStatus.m_nMP;
         Debug.Log(gameObject.name);
     }
 
@@ -58,6 +66,6 @@ public class Player: MonoBehaviour
     void Update()
     {
         if (guiStatusBar)
-            guiStatusBar.SetState(nHp, nMaxHP);
+            guiStatusBar.SetState(sStatus.m_nHP, nMaxHP);
     }
 }
