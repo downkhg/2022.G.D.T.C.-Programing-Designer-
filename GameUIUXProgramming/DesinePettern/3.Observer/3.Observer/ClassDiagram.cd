@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Commader">
-    <Position X="10.75" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="1" Width="1.5" />
     <NestedTypes>
       <Enum Name="Commader::E_COMMAND" Collapsed="true">
         <TypeIdentifier>
