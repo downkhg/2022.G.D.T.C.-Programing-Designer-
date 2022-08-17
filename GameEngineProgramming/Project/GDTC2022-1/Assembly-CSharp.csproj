@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{6B3A19B2-1A99-7753-4E1F-7842FECE3EFC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\GUI\GUIItemButton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\ClassDiagram.cd" />
     <None Include="Assets\작업목록.txt" />
     <None Include="Assets\용어정리.txt" />
   </ItemGroup>

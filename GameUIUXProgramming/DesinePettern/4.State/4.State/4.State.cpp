@@ -11,6 +11,7 @@ void main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); //메모리 누수 검사 
 
 	Context cContext;
+	//State cState;//추상클래스는 객체를 할당할수없고, 참조로만 구현이 가능하다.
 	//성성자에서 기본 StateOne을 할당하거나,
 	//성성시 State를 설정할수있도록 생성자를 정의함.
 	//소멸자에는 생성된 객체를 소멸시키도록 만듦.

@@ -15,7 +15,7 @@ public class GUIStatusBar : MonoBehaviour
         textLable.text = labletext;
         //Image img = rectBar.gameObject.GetComponent<Image>();
         //img.color = color;
-        rectBar.GetComponent<Image>().color = color;
+        rectBar.GetComponent<Image>().color = color;//이미지는 크래스이므로 인스턴스(원본)에 접근하여 값을 변경할수있다.
         SetState(state, state_max);
     }
 
@@ -26,6 +26,7 @@ public class GUIStatusBar : MonoBehaviour
         Vector2 vBarSize = rectBar.sizeDelta;
         vBarSize.x = vMaxSize.x * fStateRat;
         rectBar.sizeDelta = vBarSize;
+        //rectBar.sizeDelta.x = vMaxSize.x * fStateRat; //구조체는 리턴될때 복사되므로 원본에 참조접근아니므로, 다음과 같은 문법은 활용할 수 없다.
     }
 
     // Start is called before the first frame update

@@ -11,11 +11,11 @@ class StateThree;
 //클래스의 정의: 클래스의 멤버가 어떤것이 있는지 확인할수있음.
 //포인터나 참조자는 대상을 가르키기때문에, 형태와 상관 없이 존제 여부만 알면 사용가능하다.
 //그러므로 선언만된 대상을 가르킬때 활용할수있다.
-class State
+class State //추상클래스: 순수가상함수를 1개이상 가진함수. 객체화 할 수 없다.
 {
 	friend class Context;
 public:
-	virtual void GoNext(Context* context) = 0;
+	virtual void GoNext(Context* context) = 0;//순수가상함수: 가상함수를 자식에서 반드시 정의하도록 강제하는 것.
 };
 
 

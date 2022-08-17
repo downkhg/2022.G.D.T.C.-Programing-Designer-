@@ -97,6 +97,12 @@ public class AutoController : MonoBehaviour
     void FindProcess()
     {
         Collider[] colliders = Physics.OverlapSphere(playerController.transform.position, Site);
+
+        BoxCollider boxCollider;
+        SphereCollider sphereCollider;
+        TerrainCollider terrainCollider;
+        MeshCollider meshCollider;
+
         nColCount = colliders.Length;
         bool bCheck = false;
         foreach (var collider in colliders)
