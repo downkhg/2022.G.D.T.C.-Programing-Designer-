@@ -6,16 +6,17 @@ WCARH(Uni-Code:UTF-8):
 동적배열:
 (정적)배열:
 
-#객체지향언어
+#객체지향언어(C++/Java/C#)
 객체(포인트):
 인스턴스(동적할당메모리):
+스마트포인터:
 
-#컴퓨터구조
+#컴퓨터구조(컴퓨터과학)
 CPU:
 RAM:
 ROM(HDD):
 
-#플랫폼
+#플랫폼(운영체제론)
 OS(Operation System):
 GUI(Graphic User Interface):
 드라이버(SW):
