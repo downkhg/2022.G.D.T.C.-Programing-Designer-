@@ -1,0 +1,30 @@
+#기초용어
+함수호출(Function Call):
+CallBack:
+API(Application Programming Interface):
+WCARH(Uni-Code:UTF-8):
+동적배열:
+(정적)배열:
+
+#객체지향언어
+객체(포인트):
+인스턴스(동적할당메모리):
+
+#컴퓨터구조
+CPU:
+RAM:
+ROM(HDD):
+
+#플랫폼
+OS(Operation System):
+GUI(Graphic User Interface):
+드라이버(SW):
+Window(OS):
+WinAPI:
+메시지:
+가상머신(JVM,CRL):
+가비지컬렉션(메모리관리):
+
+#메모리
+스택(지역변수,전역변수):
+힙(동적할당메모리):
