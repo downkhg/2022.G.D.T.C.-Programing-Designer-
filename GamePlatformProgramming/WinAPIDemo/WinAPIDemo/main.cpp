@@ -20,6 +20,7 @@ string strMSG[MAX] = { "CREATE","COMMOND","PAINT","DESTROY" };
 //전역변수: 프로그램이 종료시까지 메모리가 남아있는 변수.
 bool g_bLoop = true;
 int g_nMsg = false;
+queue<int> g_queMsg;
 
 //지역변수: 집밥: 
 //전역변수: 배달음식: 
@@ -38,31 +39,41 @@ unsigned int WINAPI WndProc(void* arg)
 	//int* pData = (int*)arg;
 	//int nMsg = *pData;
 
+
 	while (g_bLoop)
 	{
-		switch (g_nMsg)
+		if (!g_queMsg.empty())
 		{
-		case CREATE:
-			cout << "초기화" << endl;
-			g_nMsg = COMMOND;
-			break;
-		case COMMOND:
-			cout << "명령을 입력하세요." << endl;
-			for (int i = 0; i < MAX; i++)
-				cout << i << ":" << strMSG[i]<<",";
-			cout << endl;
-			break;
-		case PAINT:
-			cout << "화면에 그립니다." << endl;
-			break;
-		case DESTROY:
-			cout << "프로그램을 종료합니다." << endl;
-			g_bLoop = false;
-			break;
-		default:
-			break;
+			int nMsg = g_queMsg.front();
+			g_queMsg.pop();
+
+			switch (nMsg)
+			{
+			case CREATE:
+				cout << "초기화" << endl;
+				//g_nMsg = COMMOND;
+				g_queMsg.push(COMMOND);
+				break;
+			case COMMOND:
+				cout << "명령을 입력하세요." << endl;
+				for (int i = 0; i < MAX; i++)
+					cout << i << ":" << strMSG[i] << ",";
+				cout << endl;
+				break;
+			case PAINT:
+				cout << "화면에 그립니다." << endl;
+				break;
+			case DESTROY:
+				cout << "프로그램을 종료합니다." << endl;
+				g_bLoop = false;
+				break;
+			default:
+				break;
+			}
+			Sleep(2000);
 		}
-		Sleep(2000);
+		else
+			cout << " QueueSize:" << g_queMsg.size() << endl;
 	}
 	cout << "WndProc End arg:" << arg << endl;
 	return 0;
@@ -98,6 +109,7 @@ int main() //OS가 프로그램이 실행되었을때 가장 먼저 호출하기로 약속된함수.
 	while (g_bLoop)
 	{
 		scanf_s("%d", &g_nMsg);
+		g_queMsg.push(g_nMsg);
 	}
 
 	return 0;
