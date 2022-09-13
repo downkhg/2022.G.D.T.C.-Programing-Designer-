@@ -19,7 +19,7 @@ public:
 	}
 	virtual void SkillA(Unit* target)
 	{
-		cout << "SkillA" << endl;
+		cout <<"SkillA" << endl;
 	}
 	virtual void SkillB(Unit* target)
 	{
@@ -113,10 +113,14 @@ public:
 
 void main()
 {
+	//메모리가 정적할당되었다.
+	//따로 객체만 생성해서 접근할수있는 상태다.
 	Commader cCommder;
 	Marin marins[10];
 	Medic medics[10];
-
+	//커멘더는 유닛클래스를 상속받은 대상의 주소값이라면,
+	//자식이 어느쪽유닛이 되었건 공통적으로 처리할수있다.
+	//이렇게 주소값으로 메모리를 가르키는것을 참조라고 부른다.
 	for (int i = 0; i < 10; i++)
 		cCommder.AddGroup(&marins[i]);
 

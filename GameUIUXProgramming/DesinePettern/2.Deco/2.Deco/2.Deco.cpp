@@ -66,7 +66,8 @@ public:
 		cout << "~AmondChocoCookie:" << this << endl;
 	}
 };
-int main()
+
+void CookiePointerMain()
 {
 	Cookie cCookie(100, 20);
 	//MilkCookie cMilkCookie[10]{ MilkCookie(100,20,10), };
@@ -86,4 +87,12 @@ int main()
 	delete[] pMilkCookies;
 
 	AmondChocoCookie cAmondChcoCookie(100, 20, 50, 10);
+}
+
+int main()
+{
+	Cookie cCookie(100,10);
+	MilkCookie  cMilkCookie(100, 10, 20);
+	ChocoCookie cChocoCookie(100, 10, 50);
+	AmondChocoCookie cAmondChocoCookie(100, 10, 30, 20);
 }
