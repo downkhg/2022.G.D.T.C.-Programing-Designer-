@@ -36,7 +36,7 @@ struct PS_INPUT
 //--------------------------------------------------------------------------------------
 // Vertex Shader
 //--------------------------------------------------------------------------------------
-PS_INPUT VS( VS_INPUT input )
+PS_INPUT VS( VS_INPUT input )//공간변환
 {
     PS_INPUT output = (PS_INPUT)0;
     output.Pos = mul( input.Pos, World );
@@ -51,7 +51,7 @@ PS_INPUT VS( VS_INPUT input )
 //--------------------------------------------------------------------------------------
 // Pixel Shader
 //--------------------------------------------------------------------------------------
-float4 PS( PS_INPUT input) : SV_Target
+float4 PS( PS_INPUT input) : SV_Target //색상을 채우는것
 {
     float4 finalColor = 0;
     
