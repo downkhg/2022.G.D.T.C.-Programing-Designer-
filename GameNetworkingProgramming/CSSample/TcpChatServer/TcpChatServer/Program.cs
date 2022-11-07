@@ -61,19 +61,25 @@ namespace TcpChatServer
             }
         }
         static List<Task> tasks = new List<Task>();
+        static bool isAccptCallBack = true;
 
         static void AccptCallBack(TcpListener server)
         {
-            if (TcpClientAccept.clients.Count == tasks.Count)
+            Console.WriteLine("AccptCallBack Start!");
+            while(isAccptCallBack)
             {
-                Console.WriteLine("Accept/Connet Count:{0}/{1}",
-                    tasks.Count, TcpClientAccept.clients.Count);
-                TcpClientAccept tcpClientAccept = new TcpClientAccept(server);
-                Task taskClientAccept = new Task(tcpClientAccept.CallBack);
-                tcpClientAccept.Task = taskClientAccept;
-                taskClientAccept.Start();
-                tasks.Add(taskClientAccept);
+                if (TcpClientAccept.clients.Count == tasks.Count)
+                {
+                    Console.WriteLine("Accept/Connet Count:{0}/{1}",
+                        tasks.Count, TcpClientAccept.clients.Count);
+                    TcpClientAccept tcpClientAccept = new TcpClientAccept(server);
+                    Task taskClientAccept = new Task(tcpClientAccept.CallBack);
+                    tcpClientAccept.Task = taskClientAccept;
+                    taskClientAccept.Start();
+                    tasks.Add(taskClientAccept);
+                }
             }
+            Console.WriteLine("AccptCallBack End!");
         }
 
         static void Main(string[] args)
@@ -93,18 +99,18 @@ namespace TcpChatServer
                 string input = Console.ReadLine();
                 if(input  == "exit")
                 {
-                    taskAcceptCallBack.Wait();
+                    isAccptCallBack = false;
+                    server.Stop();
+                    taskAcceptCallBack.Wait(); 
                 }
             } while (tasks.Count > 0);
             Console.WriteLine("WaitAccept!");
-  
-            foreach(Task task in tasks)
-            {
+            foreach (var task in tasks)
                 task.Wait();
-            }
+            Console.WriteLine("Server Exit!");
             //networkStream.Close();
             //client.Close();
-            server.Stop();
+            ;
         }
     }
 }

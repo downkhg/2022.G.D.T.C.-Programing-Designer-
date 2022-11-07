@@ -19,10 +19,18 @@ namespace TCPClient
                 string msg = "connect";
                 Console.Write("SendMsg:");
                 msg = Console.ReadLine();
+
+
                 Byte[] bytes = System.Text.Encoding.UTF8.GetBytes(msg);
-                
                 stream.Write(bytes, 0, bytes.Length);
                 Console.WriteLine("Sent:" + msg);
+
+
+                if (msg == "exit")
+                {
+                    isLoop = false;
+                    break;
+                }
 
                 bytes = new Byte[1024];
 
